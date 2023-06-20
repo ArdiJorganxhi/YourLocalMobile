@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(value = "mobileshopclient", url = "${mobileshop.api.url}")
 public interface MobileShopApiClient {
 
-    @PostMapping("/mobile-shops/{userId}")
+    @PostMapping("/{userId}")
     void createMobileShop(@RequestBody MobileShopRequest request, @PathVariable Integer userId);
 
-    @GetMapping("/mobile-shops/{id}")
+    @GetMapping("/{id}")
     MobileShopDtoResponse getMobileShopById(@PathVariable Integer id);
 }

@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user-api" />
         <module name="ecommerce-gateway" />
+        <module name="phone-api" />
         <module name="mobileshop-api" />
       </profile>
     </annotationProcessing>
@@ -17,6 +18,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ecommerce-gateway" options="-parameters" />
       <module name="mobileshop-api" options="-parameters" />
+      <module name="phone-api" options="-parameters" />
       <module name="user-api" options="-parameters" />
     </option>
   </component>
