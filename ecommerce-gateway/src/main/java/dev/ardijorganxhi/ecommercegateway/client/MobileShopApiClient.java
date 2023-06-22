@@ -1,12 +1,10 @@
 package dev.ardijorganxhi.ecommercegateway.client;
 
 import dev.ardijorganxhi.ecommercegateway.model.request.MobileShopRequest;
+import dev.ardijorganxhi.ecommercegateway.model.request.RegisterPhoneRequest;
 import dev.ardijorganxhi.ecommercegateway.model.response.MobileShopDtoResponse;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(value = "mobileshopclient", url = "${mobileshop.api.url}")
 public interface MobileShopApiClient {
@@ -16,4 +14,10 @@ public interface MobileShopApiClient {
 
     @GetMapping("/{id}")
     MobileShopDtoResponse getMobileShopById(@PathVariable Integer id);
+
+    @PostMapping("/{mobileShopId}/phones/{phoneId}")
+    void registerPhoneToMobileShop(@PathVariable Integer mobileShopId, @PathVariable Integer phoneId, @RequestBody RegisterPhoneRequest request);
+
+    @DeleteMapping("/{mobileShopId}/phones/{phoneId}")
+    void deletePhoneToMobileShop(@PathVariable Integer mobileShopId, @PathVariable Integer phoneId);
 }
